@@ -23,11 +23,11 @@ Reboot your system.
 
 Start with `origin/des-nixos`, then create a new git branch with example naming scheme: 
 ```bash
-git checkout -b des-gaming
+git checkout --orphan des-gaming
 # or
-git checkout -b lap-thinkpad
+git checkout --orphan lap-thinkpad
 # or
-git checkout -b srv-pihole
+git checkout --orphan srv-pihole
 ```
 
 Execute `init.bash` and do as it says on screen:
