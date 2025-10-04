@@ -16,7 +16,8 @@
   '';
 
   home.file."${home}/.config/mpv/scripts/autoload.lua".text = builtins.readFile(builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/mpv-player/mpv/refs/heads/master/TOOLS/lua/autoload.lua"
+    url = "https://raw.githubusercontent.com/mpv-player/mpv/refs/heads/master/TOOLS/lua/autoload.lua";
+    sha256 = "0m441dvhkqw18jh1q71ygmh09a3h7jcp33m4nbxfp26cmkr286dv";
   });
 
   xdg.mimeApps.defaultApplications = {

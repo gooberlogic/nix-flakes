@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 
 func () {
-  git branch; read -p "Specify branch [des-nixos]: " branch; branch=${branch:-des-nixos}; echo"
+  git branch; read -p "Specify branch [des-nixos]: " branch; branch=${branch:-des-nixos}; echo
 
   for dir in ./hosts/*/; do
     if [[ -d "$dir" && "$dir" == *.old/ ]]; then
