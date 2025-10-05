@@ -75,6 +75,8 @@ in
     wl-clipboard
     dconf
     eza
+    git
+    git-crypt
   ] ++ extraPkgs ++ specialPkgsFix;
 
   # Do not change!
