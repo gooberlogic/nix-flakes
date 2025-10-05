@@ -10,7 +10,7 @@
       no-rebuild = "sudo nixos-rebuild switch --flake ~/nix-flakes/nixos/";
       no-rebuild-boot = "sudo nixos-rebuild boot --flake ~/nix-flakes/nixos/";
       no-clean = "sudo nix-collect-garbage -d; nix-store --optimise";
-      no-sync = "git branch; read -p \"Specify branch [des-nixos]: \" branch; branch=\${branch:-des-nixos}; echo; d=\$(pwd); cd ~/nix-flakes/nixos; git fetch origin; git restore --source=origin/\$branch --staged --worktree modules; cd \"\$d\"";
+      no-sync = "d=\$(pwd); cd ~/nix-flakes/nixos; git branch; read -p \"Specify branch [des-nixos]: \" branch; branch=\${branch:-des-nixos}; echo; git fetch origin; git restore --source=origin/\$branch --staged --worktree modules; cd \"\$d\"";
 
       nix-locate="nix run github:nix-community/nix-index-database";
 
