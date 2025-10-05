@@ -22,7 +22,7 @@ in
     # home-manager
     hm-clean = "nix-collect-garbage -d; nix-store --optimise";
     hm-rebuild = "home-manager switch --flake ~/nix-flakes/home-manager/";
-    hm-sync = "git branch; read -p \"Specify branch [des-nixos]: \" branch; branch=\${branch:-des-nixos}; echo; d=\$(pwd); cd ~/nix-flakes/home-manager; git fetch origin; git restore --source=origin/\$branch --staged --worktree modules; cd \"\$d\"";
+    hm-sync = "d=\$(pwd); cd ~/nix-flakes/home-manager; git branch; read -p \"Specify branch [des-nixos]: \" branch; branch=\${branch:-des-nixos}; echo; git fetch origin; git restore --source=origin/\$branch --staged --worktree modules; cd \"\$d\"";
 
     # ssh
     ssh1 = "waypipe -n ssh ${mod_alias_sshHosts.server}";
