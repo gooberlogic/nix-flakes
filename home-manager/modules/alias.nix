@@ -22,7 +22,7 @@ in
     # home-manager
     hm-clean = "nix-collect-garbage -d; nix-store --optimise";
     hm-rebuild = "home-manager switch --flake ~/nix-flakes/home-manager/";
-    hm-sync = "git branch; read -p \"Specify branch [des-nixos]: \" branch; branch=\${branch:-des-nixos}; echo; d=\$(pwd); cd ~/nix-flakes/home-manager; git fetch origin; git restore --source=origin/\$branch --staged --worktree modules; cd \"\$d\"";
+    hm-sync = "d=\$(pwd); cd ~/nix-flakes/home-manager; git branch; read -p \"Specify branch [des-nixos]: \" branch; branch=\${branch:-des-nixos}; echo; git fetch origin; git restore --source=origin/\$branch --staged --worktree modules; cd \"\$d\"";
 
     # ssh
     ssh1 = "waypipe -n ssh ${mod_alias_sshHosts.server}";
@@ -48,6 +48,7 @@ in
     lsblk = "lsblk -o NAME,FSTYPE,PARTLABEL,LABEL,MOUNTPOINT,TYPE,TRAN,SIZE,MODEL,VENDOR";
     density = "find -type f -exec dirname {} \\; | sort | uniq -c | sort -n";
     venv = "source ./.venv/bin/activate";
+    pass-here = "export PASSWORD_STORE_DIR=$PWD";
     yt-dlp-archive = "yt-dlp -f 'bestvideo[height<=720][fps<=30][ext=mp4]+bestaudio[ext=m4a]' -o '%(upload_date)s - %(title)s%(ext)s' --download-archive ./archive.txt --write-description --write-info-json --write-sub --write-auto-sub --write-thumbnail --write-annotations";
     sensors-watch = "bash -c 'while true; do clear; sensors; sleep \$0; done'";
   };
