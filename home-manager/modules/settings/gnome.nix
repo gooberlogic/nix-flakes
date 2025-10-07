@@ -9,7 +9,7 @@ in
 
     enable = true;
 
-    # to help file values, use: dconf watch /
+    # to help find dconf values, use: dconf watch /
 
     settings."org/gnome/desktop/peripherals/touchpad".natural-scroll = false;
 

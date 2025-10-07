@@ -17,9 +17,7 @@
     python313Packages.pip
   ];
 
-  programs.neovim = {
-    enable = true;
-  };
+  programs.neovim.enable = true;
 
   home.shellAliases = {
     nvchad-link = "ln -s $HOME/nix-flakes/home-manager/modules/dev/nvchad $HOME/.config/nvim";
