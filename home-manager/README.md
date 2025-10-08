@@ -24,7 +24,7 @@ Install the base configuration:
 ```bash
 cd ./nix-flakes/home-manager
 git-crypt unlock
-home-manager --flake .#user switch
+home-manager --flake .#goob switch
 ```
 
 ### Branch Creation
