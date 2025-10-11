@@ -21,7 +21,7 @@ in
 
   # settings/gnome
   mod_gnome_accentColor = "blue";
-  mod_gnome_sources = [ "us+colemak_dh" "us" ];
+  mod_gnome_kbSources = [ "us+colemak_dh" "us" ];
   mod_gnome_kbOptions = [ "terminate:ctrl_alt_bksp" "caps:swapescape" ];
 
   # settings/kde-gruv

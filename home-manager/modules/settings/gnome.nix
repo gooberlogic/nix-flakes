@@ -1,9 +1,9 @@
 { config, pkgs, lib, user, ... }:
 
 let
-  inherit (import ../../users/${user}/vars.nix) mod_gnome_accentColor mod_gnome_kbOptions mod_gnome_sources;
+  inherit (import ../../users/${user}/vars.nix) mod_gnome_accentColor mod_gnome_kbOptions mod_gnome_kbSources;
 
-  sourcesFix = map (layout: (lib.hm.gvariant.mkTuple ["xkb" "${layout}"])) mod_gnome_sources;
+  kbSourcesFix = map (layout: (lib.hm.gvariant.mkTuple ["xkb" "${layout}"])) mod_gnome_kbSources;
 in
 {
 
@@ -65,7 +65,7 @@ in
 
     settings."org/gnome/desktop/input-sources" = {
       xkb-options = mod_gnome_kbOptions;
-      sources = sourcesFix;
+      sources = kbSourcesFix;
     };
 
     settings."org/gnome/shell/extensions/trayIconsReloaded" = {
