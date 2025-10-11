@@ -13,6 +13,8 @@ in
   hostname = "nixos";
   lang = "en_US.UTF-8";
   kblayout = "us";
+  kbvariant = "colemak_dh";
+  kboptions = "caps:swapescape";
   autoOptimize = true;
   textEditor = "nvim"; 
   paths = secret_paths;

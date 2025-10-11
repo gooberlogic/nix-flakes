@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kblayout autoOptimize textEditor; 
+  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kblayout kbvariant kboptions autoOptimize textEditor; 
 
   moduleImports = [
 
@@ -57,7 +57,12 @@ in
   networking.hostName = hostname;
   time.timeZone = timezone;
   i18n.defaultLocale = lang;
-  services.xserver.xkb.layout = kblayout;
+  console.useXkbConfig = true;
+  services.xserver.xkb = {
+    layout = kblayout;
+    variant = kbvariant;
+    options = kboptions;
+  };
 
   # GNUPG
   programs.mtr.enable = true;

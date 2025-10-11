@@ -1,7 +1,9 @@
 { config, pkgs, lib, user, ... }:
 
 let
-  inherit (import ../../users/${user}/vars.nix) mod_gnome_accentColor;
+  inherit (import ../../users/${user}/vars.nix) mod_gnome_accentColor mod_gnome_kbOptions mod_gnome_sources;
+
+  sourcesFix = map (layout: (lib.hm.gvariant.mkTuple ["xkb" "${layout}"])) mod_gnome_sources;
 in
 {
 
@@ -61,7 +63,10 @@ in
       repeat-interval = lib.hm.gvariant.mkUint32 15;
     };
 
-    settings."org/gnome/desktop/input-sources".xkb-options = [ "terminate:ctrl_alt_bksp" "caps:swapescape" ];
+    settings."org/gnome/desktop/input-sources" = {
+      xkb-options = mod_gnome_kbOptions;
+      sources = sourcesFix;
+    };
 
     settings."org/gnome/shell/extensions/trayIconsReloaded" = {
       icon-padding-horizontal = 4;
