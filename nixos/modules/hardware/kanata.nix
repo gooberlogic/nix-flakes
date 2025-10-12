@@ -14,17 +14,18 @@
         lctl lmet lalt           spc            ralt rmet rctl
       )
 
-      ;; angle modded
+      ;; Gallium v2 + classic angle mod
+      ;; (Bryson's angle mod has too many key changes)
       (deflayer gallium
         esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
         @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-        tab  b    l    d    c    z    j    f    o    u    ,    [    ]    \
-        @cap n    r    t    s    v    y    h    a    e    i    /    ret
-        lsft q    m    w    g    x    k    p    '    ;    .    rsft
+        tab  b    l    d    c    v    j    f    o    u    ,    [    ]    \
+        @cap n    r    t    s    g    y    h    a    e    i    /    ret
+        lsft q    m    w    z    x    k    p    '    ;    .    rsft
         lctl lmet lalt           spc            ralt rmet rctl
       )
 
-      ;; angle modded
+      ;; Colemak-DH (angle modded)
       (deflayer colemakdh
         esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
         @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
@@ -59,8 +60,8 @@
       ;;)
       
       (deflayer layers
-        _    @gal @cmk @qwr _    _    _    _    _    _    _    lrld _
-        _    @gal @cmk @qwr _    _    _    _    _    _    _    lrld _    _
+        _    @gal @qwr @cmk _    _    _    _    _    _    _    lrld _
+        _    @gal @qwr @cmk _    _    _    _    _    _    _    lrld _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _
