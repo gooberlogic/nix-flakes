@@ -17,8 +17,8 @@ in
   timezone = "America/New_York";
   lang = "en_US.UTF-8";
   kbLayout = "us";
-  kbVariant = "colemak_dh";
-  kbOptions = "caps:swapescape";
+  kbVariant = ""; # colemak_dh
+  kbOptions = ""; # caps:swapescape
 
 
   # user 

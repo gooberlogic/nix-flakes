@@ -17,6 +17,7 @@ let
     "gaming/kvm-gpu"
     "gaming/steam"
 
+    "hardware/kanata"
     "hardware/openrazer"
     "hardware/amd-amdgpu"
     "hardware/smartmontools"
