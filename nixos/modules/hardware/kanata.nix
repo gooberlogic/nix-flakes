@@ -21,7 +21,7 @@
         @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  b    l    d    c    v    j    f    o    u    ,    [    ]    \
         @cap n    r    t    s    g    y    h    a    e    i    /    ret
-        lsft q    m    w    z    x    k    p    '    ;    .    rsft
+        @ftx q    m    w    z    x    k    p    '    ;    .    rsft
         @lct lmet lalt           spc            ralt rmet @rct
       )
 
@@ -52,6 +52,7 @@
         qwr (layer-switch qwerty)
       
         cap (tap-hold 200 200 caps (layer-toggle nav))
+        ftx (tap-hold 200 100 x lsft)
 
         lct (multi lctrl (layer-while-held qwerty))
         rct (multi rctrl (layer-while-held qwerty))
