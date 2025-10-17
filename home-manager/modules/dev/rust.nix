@@ -15,8 +15,6 @@
     gcc
   ];
 
-  home.shellAliases = {
-    cargo = "cargo mommy";
-  };
+  home.shellAliases.cargo = "cargo mommy";
 
 }

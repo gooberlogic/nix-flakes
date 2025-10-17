@@ -93,13 +93,6 @@ in
     show-desktop-button
   ];
 
-  xdg.mimeApps.defaultApplications = {
-    "image/*" = ["org.gnome.Loupe.desktop"];
-    "image/png" = ["org.gnome.Loupe.desktop"];
-    "image/jpeg" = ["org.gnome.Loupe.desktop"];
-    "image/jpg" = ["org.gnome.Loupe.desktop"];
-    "image/gif" = ["org.gnome.Loupe.desktop"];
-    "image/webp" = ["org.gnome.Loupe.desktop"];
-  };
+  xdg.mimeApps.defaultApplications."image/*" = ["org.gnome.Loupe.desktop"];
 
 }

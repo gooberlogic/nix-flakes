@@ -28,8 +28,6 @@
     renderer=EGL
   '';
 
-  home.shellAliases = {
-    looking-glass-perm = "sudo chmod 755 /dev/shm/looking-glass; sudo chown $USER:root /dev/shm/looking-glass";
-  };
+  home.shellAliases.looking-glass-perm = "sudo chmod 755 /dev/shm/looking-glass; sudo chown $USER:root /dev/shm/looking-glass";
 
 }

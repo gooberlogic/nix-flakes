@@ -1,3 +1,5 @@
+This `README.md` is from branch `des-nixos`
+
 ## home-manager flake
 
 #### install home-manager standalone

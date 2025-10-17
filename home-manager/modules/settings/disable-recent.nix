@@ -1,23 +1,20 @@
 { config, pkgs, lib, home, ... }:
 
+let
+  files = [
+    "recently-used.xbel"
+    "user-places.xbel"
+    "user-places.xbel.bak"
+    "user-places.xbel.tbcache"
+  ];
+
+  attr = file: {
+    name = "${home}/.local/share/${file}";
+    value.text = '''';
+  };
+in
 {
 
-  # could probably use a for loop or something, oh well...
-  
-  home.file."${home}/.local/share/recently-used.xbel" = {
-    text = '''';
-  };
-
-  home.file."${home}/.local/share/user-places.xbel" = {
-    text = '''';
-  };
-
-  home.file."${home}/.local/share/user-places.xbel.bak" = {
-    text = '''';
-  };
-
-  home.file."${home}/.local/share/user-places.xbel.tbcache" = {
-    text = '''';
-  };
+  home.file = builtins.listToAttrs (builtins.map attr files);
 
 }

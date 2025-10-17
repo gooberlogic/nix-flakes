@@ -1,3 +1,5 @@
+This `README.md` is from branch `des-nixos`
+
 ## NixOS flake 
 
 #### Flake Install

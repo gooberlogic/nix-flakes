@@ -2,8 +2,6 @@
 
 {
 
-  services.displayManager.lemurs = {
-    enable = true;
-  };
+  services.displayManager.lemurs.enable = true;
 
 }

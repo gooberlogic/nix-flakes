@@ -12,6 +12,7 @@ in
     group = user;
     extraGroups = [];
   }) mod_userGen_users);
+
   users.groups = builtins.listToAttrs (map (user: lib.nameValuePair user {
     gid = (mod_userGen_startId + (lib.lists.findFirstIndex (x: x == user) null mod_userGen_users));
   }) mod_userGen_users);

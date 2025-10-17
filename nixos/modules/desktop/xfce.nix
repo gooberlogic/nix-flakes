@@ -2,11 +2,9 @@
 
 {
 
-  services.xserver = {
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
+  services.xserver.desktopManager = {
+    xterm.enable = false;
+    xfce.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

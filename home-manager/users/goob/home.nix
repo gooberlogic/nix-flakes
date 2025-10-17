@@ -1,9 +1,7 @@
 { config, pkgs, lib, realUser, home, ... }:
-let
-  inherit (import ./vars.nix) specialPkgs;
-in
 
 let 
+  inherit (import ./vars.nix) specialPkgs;
 
   extraPkgs = with pkgs; [
     # CLI

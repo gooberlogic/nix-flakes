@@ -5,15 +5,15 @@ let
 in
 {
 
-  services.openssh.enable = mod_network_ssh;
   services.openssh = {
+    enable = mod_network_ssh;
     ports = [ mod_network_sshPort ];
-    settings = {
-      PermitRootLogin = "no";
-    };
+    settings.PermitRootLogin = "no";
   };
 
-  networking.enableIPv6 = mod_network_ipv6;
-  networking.nameservers = [ ] ++ mod_network_dns;
+  networking = {
+    enableIPv6 = mod_network_ipv6;
+    nameservers = [ ] ++ mod_network_dns;
+  };
 
 }

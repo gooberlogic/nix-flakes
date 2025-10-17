@@ -38,7 +38,6 @@ let
 
   modulesDir = ../../modules;
   moduleImportsMap = map (m: modulesDir + "/${m}.nix") moduleImports;
-
 in
 {
 

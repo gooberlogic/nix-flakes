@@ -11,6 +11,7 @@ let
   };
 in
 {
+
   xdg.mimeApps.defaultApplications = {
     "text/html" = ["librewolf.desktop"];
     "x-scheme-handler/http" = ["librewolf.desktop"];

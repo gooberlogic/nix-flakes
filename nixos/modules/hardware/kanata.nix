@@ -32,7 +32,7 @@
         tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
         @cap a    r    s    t    g    m    n    e    i    o    '    ret
         lsft x    c    d    v    z    k    h    ,    .    /    rsft
-        lctl lmet lalt           spc            ralt rmet rctl
+        @lct lmet lalt           spc            ralt rmet @rct
       )
       
       (deflayer qwerty
@@ -56,6 +56,8 @@
 
         lct (multi lctrl (layer-while-held qwerty))
         rct (multi rctrl (layer-while-held qwerty))
+
+        ;;cap (tap-hold 200 200 caps (multi (fork S-[ (unshift {) (rsft lsft)) (fork S-] (unshift }) (rsft lsft)) (layer-toggle nav))
       )
       
       ;;(deflayermap (base)
@@ -75,7 +77,7 @@
       (deflayer nav 
         _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _    _    _    _    _    _    _    _    _
+        _    _    _    _    _    _    _    S-]  S-[  _    _    _    _    _
         _    _    _    _    _    _    lft  down up   rght esc  _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _
@@ -93,7 +95,7 @@
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
   '';
 
-  users.groups.uinput = { };
+  users.groups.uinput = {};
 
   systemd.services.kanata-default.serviceConfig = {
     SupplementaryGroups = [

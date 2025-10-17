@@ -2,9 +2,9 @@
 
 {
 
-  services.xserver = {
-    desktopManager.mate.enable = true;
-    desktopManager.mate.enableWaylandSession = true;
+  services.xserver.desktopManager.mate = {
+    enable = true;
+    enableWaylandSession = true;
   };
 
 }
