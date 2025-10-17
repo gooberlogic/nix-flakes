@@ -2,7 +2,9 @@
 
 {
 
-  services.xserver.enable = true;
-  services.xserver.desktopManager.budgie.enable = true;
+  services.xserver = {
+    enable = true;
+    desktopManager.budgie.enable = true;
+  };
 
 }

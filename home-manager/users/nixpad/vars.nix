@@ -16,11 +16,13 @@ in
 
   # environment
   mod_environment_textEditor = "nvim";
-  mod_environment_ps1Color = "38";
+  mod_environment_ps1Color = "39";
   mod_environment_openWebUiKey = secret_openWebUiKey;
 
   # settings/gnome
   mod_gnome_accentColor = "red";
+  mod_gnome_kbSources = []; #[ "us+colemak_dh" "us" ];
+  mod_gnome_kbOptions = []; #[ "terminate:ctrl_alt_bksp" "caps:swapescape" ];
 
   # settings/kde-gruv
   mod_kdeGruv_userContentDir = secret_userContentDir;

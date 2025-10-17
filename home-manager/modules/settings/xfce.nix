@@ -2,13 +2,9 @@
 
 {
   
-  services.xserver = {
-    libinput = {
-        enable = true;
-        mouse = {
-          accelProfile = "flat";
-        };
-    };
+  services.xserver.libinput = {
+    enable = true;
+    mouse.accelProfile = "flat";
   };
 
 }

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kblayout autoOptimize textEditor; 
+  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kbLayout kbVariant kbOptions autoOptimize textEditor; 
 
   moduleImports = [
 
@@ -14,21 +14,30 @@ let
 
     "dispman/gdm"
 
+    "gaming/kvm-gpu"
     "gaming/steam"
 
+    "hardware/kanata"
+    "hardware/openrazer"
+    "hardware/amd-amdgpu"
     "hardware/smartmontools"
+    "hardware/droidcam"
 
     "misc/brave-debloat"
 
     "networking/network"
+    "networking/samba.secret"
+    "networking/shadowsocks"
 
+    "system/docker"
     "system/waydroid"
+    "system/kvm"
+    "system/flatpak"
 
   ];
 
   modulesDir = ../../modules;
   moduleImportsMap = map (m: modulesDir + "/${m}.nix") moduleImports;
-
 in
 {
 
@@ -48,7 +57,12 @@ in
   networking.hostName = hostname;
   time.timeZone = timezone;
   i18n.defaultLocale = lang;
-  services.xserver.xkb.layout = kblayout;
+  console.useXkbConfig = true;
+  services.xserver.xkb = {
+    layout = kbLayout;
+    variant = kbVariant;
+    options = kbOptions;
+  };
 
   # GNUPG
   programs.mtr.enable = true;

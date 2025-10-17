@@ -22,6 +22,9 @@ require("nvim-tree").setup({
     end
 
     vim.keymap.set("n", "l", treeapi.node.open.edit, opts("Open"))
+    vim.keymap.set("n", "<Right>", treeapi.node.open.edit, opts("Open"))
+    
     vim.keymap.set("n", "h", treeapi.node.navigate.parent_close, opts("Close Directory"))
+    vim.keymap.set("n", "<Left>", treeapi.node.navigate.parent_close, opts("Close Directory"))
   end
 })

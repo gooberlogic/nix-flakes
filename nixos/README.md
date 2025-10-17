@@ -1,3 +1,5 @@
+This `README.md` is from branch `des-nixos`
+
 ## NixOS flake 
 
 #### Flake Install
@@ -14,7 +16,7 @@ Install the base configuration:
 ```bash
 cd ./nix-flakes/nixos
 git-crypt unlock
-sudo nixos-rebuild --flake .#host boot --show-trace
+sudo nixos-rebuild --flake .#nixos boot --show-trace
 ```
 
 Reboot your system.

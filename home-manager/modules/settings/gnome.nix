@@ -1,7 +1,9 @@
 { config, pkgs, lib, user, ... }:
 
 let
-  inherit (import ../../users/${user}/vars.nix) mod_gnome_accentColor;
+  inherit (import ../../users/${user}/vars.nix) mod_gnome_accentColor mod_gnome_kbOptions mod_gnome_kbSources;
+
+  kbSourcesFix = map (layout: (lib.hm.gvariant.mkTuple ["xkb" "${layout}"])) mod_gnome_kbSources;
 in
 {
 
@@ -9,7 +11,7 @@ in
 
     enable = true;
 
-    # to help file values, use: dconf watch /
+    # to help find dconf values, use: dconf watch /
 
     settings."org/gnome/desktop/peripherals/touchpad".natural-scroll = false;
 
@@ -61,7 +63,10 @@ in
       repeat-interval = lib.hm.gvariant.mkUint32 15;
     };
 
-    settings."org/gnome/desktop/input-sources".xkb-options = [ "terminate:ctrl_alt_bksp" "caps:swapescape" ];
+    settings."org/gnome/desktop/input-sources" = {
+      xkb-options = mod_gnome_kbOptions;
+      sources = kbSourcesFix;
+    };
 
     settings."org/gnome/shell/extensions/trayIconsReloaded" = {
       icon-padding-horizontal = 4;
@@ -88,13 +93,6 @@ in
     show-desktop-button
   ];
 
-  xdg.mimeApps.defaultApplications = {
-    "image/*" = ["org.gnome.Loupe.desktop"];
-    "image/png" = ["org.gnome.Loupe.desktop"];
-    "image/jpeg" = ["org.gnome.Loupe.desktop"];
-    "image/jpg" = ["org.gnome.Loupe.desktop"];
-    "image/gif" = ["org.gnome.Loupe.desktop"];
-    "image/webp" = ["org.gnome.Loupe.desktop"];
-  };
+  xdg.mimeApps.defaultApplications."image/*" = ["org.gnome.Loupe.desktop"];
 
 }
