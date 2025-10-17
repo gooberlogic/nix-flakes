@@ -14,25 +14,16 @@ let
 
     "dispman/gdm"
 
-    "gaming/kvm-gpu"
     "gaming/steam"
 
     "hardware/kanata"
-    "hardware/openrazer"
-    "hardware/amd-amdgpu"
     "hardware/smartmontools"
-    "hardware/droidcam"
 
     "misc/brave-debloat"
 
     "networking/network"
-    "networking/samba.secret"
-    "networking/shadowsocks"
 
-    "system/docker"
     "system/waydroid"
-    "system/kvm"
-    "system/flatpak"
 
   ];
 

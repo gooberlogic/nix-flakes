@@ -8,7 +8,7 @@ in
 
   # NOTICE: for efi only (and no "BIOS boot" partition) set grubDevice to "nodev"
   grubDevice = secret_grubDevice;
-  grubEfi = true;
+  grubEfi = false;
   hostname = "nixpad";
   autoOptimize = true;
   textEditor = "nvim"; 
@@ -27,7 +27,7 @@ in
   mod_user_groups = [ "libvirtd" "docker" "openrazer" ] ++ secret_groups;
   
   # desktop/essentials 
-  mod_essentials_printing = true;
+  mod_essentials_printing = false;
   mod_essentials_bluetooth = true;
   
   # gaming/kvm-gpu 
