@@ -9,8 +9,10 @@ in
     zfs
   ];
 
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.extraPools = mod_zfs_extraPools;
+  boot = {
+    supportedFilesystems = [ "zfs" ];
+    zfs.extraPools = mod_zfs_extraPools;
+  };
 
   networking.hostId = (builtins.substring 0 8 "${mod_zfs_hostId}");
 

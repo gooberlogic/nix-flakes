@@ -21,7 +21,7 @@ in
 
     # home-manager
     hm-clean = "nix-collect-garbage -d; nix-store --optimise";
-    hm-rebuild = "home-manager switch --flake ~/nix-flakes/home-manager/";
+    hm-rebuild = "home-manager switch --flake ~/nix-flakes/home-manager/ -b clob";
     hm-sync = "d=\$(pwd); cd ~/nix-flakes/home-manager; git branch; read -p \"Specify branch [des-nixos]: \" branch; branch=\${branch:-des-nixos}; echo; git fetch origin; git restore --source=origin/\$branch --staged --worktree modules; cd \"\$d\"";
 
     # ssh

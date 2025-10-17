@@ -9,13 +9,16 @@ in
   # NOTICE: for efi only (and no "BIOS boot" partition) set grubDevice to "nodev"
   grubDevice = secret_grubDevice;
   grubEfi = false;
-  timezone = "America/New_York";
   hostname = "homie";
-  lang = "en_US.UTF-8";
-  kblayout = "us";
   autoOptimize = true;
   textEditor = "nvim"; 
   paths = secret_paths;
+
+  timezone = "America/New_York";
+  lang = "en_US.UTF-8";
+  kbLayout = "us";
+  kbVariant = ""; # colemak_dh
+  kbOptions = ""; # caps:swapescape
 
 
   # user 

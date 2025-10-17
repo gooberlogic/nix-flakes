@@ -50,7 +50,6 @@ let
     skladnik
 
   ];
-
 in
 {
 

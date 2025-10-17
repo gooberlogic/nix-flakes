@@ -4,12 +4,13 @@
 
   # my attempt to get some desktop working on intel computer
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "intel-media-sdk-23.2.2"
-  ];
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "intel-media-sdk-23.2.2"
+    ];
+    packageOverrides = pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    };
   };
 
   hardware.graphics = {

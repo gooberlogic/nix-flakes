@@ -1,3 +1,5 @@
+This `README.md` is from branch `des-nixos`
+
 ## home-manager flake
 
 #### install home-manager standalone
@@ -24,7 +26,7 @@ Install the base configuration:
 ```bash
 cd ./nix-flakes/home-manager
 git-crypt unlock
-home-manager --flake .#user switch
+home-manager --flake .#goob switch
 ```
 
 ### Branch Creation

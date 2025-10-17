@@ -1,9 +1,7 @@
 { config, pkgs, lib, realUser, home, ... }:
-let
-  inherit (import ./vars.nix) specialPkgs;
-in
 
 let 
+  inherit (import ./vars.nix) specialPkgs;
 
   extraPkgs = with pkgs; [
     # CLI
@@ -75,6 +73,8 @@ in
     wl-clipboard
     dconf
     eza
+    git
+    git-crypt
   ] ++ extraPkgs ++ specialPkgsFix;
 
   # Do not change!

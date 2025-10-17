@@ -22,26 +22,7 @@
 
   xdg.mimeApps.defaultApplications = {
     "video/*" = ["mpv.desktop"];
-    "video/mp4" = ["mpv.desktop"];
-    "video/webm" = ["mpv.desktop"];
-    "video/ogg" = ["mpv.desktop"];
-    "video/x-matroska" = ["mpv.desktop"];
-    "video/avi" = ["mpv.desktop"];
-    "video/mpeg" = ["mpv.desktop"];
-    "video/quicktime" = ["mpv.desktop"];
-    "video/x-flv" = ["mpv.desktop"];
-  
     "audio/*" = ["mpv.desktop"];
-    "audio/mpeg" = ["mpv.desktop"];
-    "audio/x-wav" = ["mpv.desktop"];
-    "audio/ogg" = ["mpv.desktop"];
-    "audio/flac" = ["mpv.desktop"];
-    "audio/x-flac" = ["mpv.desktop"];
-    "audio/mp3" = ["mpv.desktop"];
-    "audio/aac" = ["mpv.desktop"];
-    "audio/x-aac" = ["mpv.desktop"];
-    "audio/pcm" = ["mpv.desktop"];
-    "audio/x-ogg" = ["mpv.desktop"];
   };
 
 }
