@@ -40,7 +40,7 @@
         @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
         @cap a    r    s    t    g    m    n    e    i    o    '    ret
-        lsft x    c    d    v    z    k    h    ,    .    /    rsft
+        @ftz x    c    d    v    z    k    h    ,    .    /    rsft
         @lct lmet lalt           spc            ralt rmet @rct
       )
       
@@ -52,12 +52,12 @@
         cmk (layer-switch colemakdh)
       
         cap (tap-hold 200 200 caps (layer-toggle nav))
+
         ftx (tap-hold 200 90 x lsft)
+        ftz (tap-hold 200 90 z lsft)
 
         lct (multi lctrl (layer-while-held qwerty))
         rct (multi rctrl (layer-while-held qwerty))
-
-        ;;cap (tap-hold 200 200 caps (multi (fork S-[ (unshift {) (rsft lsft)) (fork S-] (unshift }) (rsft lsft)) (layer-toggle nav))
       )
       
       ;;(deflayermap (base)
