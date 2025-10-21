@@ -24,6 +24,15 @@
         @ftx q    m    w    z    x    k    p    '    ;    .    rsft
         @lct lmet lalt           spc            ralt rmet @rct
       )
+      
+      (deflayer qwerty
+        esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
+        @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+        tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+        @cap a    s    d    f    g    h    j    k    l    ;    '    ret
+        lsft z    x    c    v    b    n    m    ,    .    /    rsft
+        lctl lmet lalt           spc            ralt rmet rctl
+      )
 
       ;; Colemak-DH (angle modded)
       (deflayer colemakdh
@@ -35,24 +44,15 @@
         @lct lmet lalt           spc            ralt rmet @rct
       )
       
-      (deflayer qwerty
-        esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
-        @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-        tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-        @cap a    s    d    f    g    h    j    k    l    ;    '    ret
-        lsft z    x    c    v    b    n    m    ,    .    /    rsft
-        lctl lmet lalt           spc            ralt rmet rctl
-      )
-      
       (defalias
         grl (tap-hold 200 200 grv (layer-toggle layers))
       
         gal (layer-switch gallium)
-        cmk (layer-switch colemakdh)
         qwr (layer-switch qwerty)
+        cmk (layer-switch colemakdh)
       
         cap (tap-hold 200 200 caps (layer-toggle nav))
-        ftx (tap-hold 200 100 x lsft)
+        ftx (tap-hold 200 90 x lsft)
 
         lct (multi lctrl (layer-while-held qwerty))
         rct (multi rctrl (layer-while-held qwerty))
@@ -77,8 +77,8 @@
       (deflayer nav 
         _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _    _    S-]  S-[  _    _    _    _    _
-        _    _    _    _    _    _    lft  down up   rght esc  _    _
+        _    _    _    _    _    _   C-lft _    _  C-rght _    esc  _    _
+        _    _    S-]  S-[  _    _    lft  down up   rght S-;  _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _
       )
