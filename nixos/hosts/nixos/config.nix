@@ -27,7 +27,7 @@ let
 
     "networking/network"
     "networking/samba.secret"
-    "networking/shadowsocks"
+    #"networking/shadowsocks"
 
     "system/docker"
     "system/waydroid"

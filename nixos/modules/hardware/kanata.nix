@@ -45,13 +45,13 @@
       )
       
       (defalias
-        grl (tap-hold 200 200 grv (layer-toggle layers))
+        grl (tap-hold 200 200 grv (layer-toggle layouts))
       
         gal (layer-switch gallium)
         qwr (layer-switch qwerty)
         cmk (layer-switch colemakdh)
       
-        cap (tap-hold 200 200 caps (layer-toggle nav))
+        cap (tap-hold 200 200 caps (layer-toggle navigation))
 
         ftx (tap-hold 200 90 x lsft)
         ftz (tap-hold 200 90 z lsft)
@@ -60,12 +60,7 @@
         rct (multi rctrl (layer-while-held qwerty))
       )
       
-      ;;(deflayermap (base)
-      ;;  caps esc
-      ;;  esc caps
-      ;;)
-      
-      (deflayer layers
+      (deflayer layouts
         _    @gal @qwr @cmk _    _    _    _    _    _    _    lrld _
         _    @gal @qwr @cmk _    _    _    _    _    _    _    lrld _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -74,11 +69,11 @@
         _    _    _              _              _    _    _
       )
 
-      (deflayer nav 
+      (deflayer navigation
         _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _   C-lft _    _  C-rght _    esc  _    _
-        _    _    S-]  S-[  _    _    lft  down up   rght S-;  _    _
+        _    _    _    _    _    _   C-lft S-] S-[ C-rght _    esc  _    _
+        _    _    _    _    _    _    lft  down up   rght S-;  _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _
       )

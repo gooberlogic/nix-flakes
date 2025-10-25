@@ -24,6 +24,8 @@ let
     "alias"
     "environment"
 
+    "cli/vpn-scripts.secret"
+
     "dev/nvchad"
     "dev/rust"
     "dev/tmux"
