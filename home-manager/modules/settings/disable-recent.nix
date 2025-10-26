@@ -11,6 +11,7 @@ let
   attr = file: {
     name = "${home}/.local/share/${file}";
     value.text = '''';
+    value.force = true;
   };
 in
 {

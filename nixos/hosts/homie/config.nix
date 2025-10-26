@@ -12,7 +12,7 @@ let
     "hardware/smartmontools"
 
     "networking/network"
-    "networking/shadowsocks"
+    #"networking/shadowsocks"
 
     "server/cloudflared"
     "server/cron"
