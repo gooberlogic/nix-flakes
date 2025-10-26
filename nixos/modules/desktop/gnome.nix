@@ -9,6 +9,7 @@
     morewaita-icon-theme
     dconf-editor
     baobab
+    ffmpegthumbnailer
 
     simp1e-cursors
   ];
