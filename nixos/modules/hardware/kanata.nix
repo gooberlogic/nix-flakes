@@ -51,8 +51,8 @@
 
         ftx (tap-hold $tt $ht x lsft)
 
-        lct (multi lctrl (layer-while-held qwerty))
-        rct (multi rctrl (layer-while-held qwerty))
+        lct (multi lctrl (layer-while-held shortcuts))
+        rct (multi rctrl (layer-while-held shortcuts))
       )
 
       (deffakekeys
@@ -60,8 +60,8 @@
       )
 
       (deflayer layouts
-        _    @gal @qwr _    _    _    _    _    _    _    _    lrld _
-        _    @gal @qwr _    _    _    _    _    _    _    _    lrld _    _
+        _    @gal @qwr _    _    _    _    _    _    _    _    _    _
+        _    @gal @qwr _    _    _    _    _    _    _    _    _    _    lrld
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         @bps _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _
@@ -77,13 +77,26 @@
         _    _    _              _              _    _    _
       )
 
-      (deflayer normal-bspc
-        _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
-        _    _    _    _    _    _    _    _    _    _    _    _    _    _
-        @cap _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _              _              _    _    _
+      ;; map these to qwerty when holding ctrl
+      (deflayermap shortcuts
+        c c ;; copy
+        v v ;; paste
+        x x ;; cut
+        t t ;; tabs
+        w w ;; close tabs
+        q q ;; quit
+        z z ;; undo
+        r r ;; redo
+        y y ;; redo
+        s s ;; save
+        o o ;; options
+        d d ;; exit
+        l l ;; clear
+      )
+
+      (deflayermap normal-bspc
+        bspc bspc
+        caps @cap
       )
     '';
   };
