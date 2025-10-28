@@ -14,57 +14,56 @@
         lctl lmet lalt           spc            ralt rmet rctl
       )
 
-      ;; Gallium v2 + classic angle mod
-      ;; (Bryson's angle mod has too many changes)
+      ;; https://github.com/GalileoBlues/Gallium
       (deflayer gallium
         esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
-        @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+        @grl 1    2    3    4    5    6    7    8    9    0    -    =    caps
         tab  b    l    d    c    v    j    f    o    u    ,    [    ]    \
-        @cap n    r    t    s    g    y    h    a    e    i    /    ret
+        @bsp n    r    t    s    g    y    h    a    e    i    /    ret
         @ftx q    m    w    z    x    k    p    '    ;    .    rsft
         @lct lmet lalt           spc            ralt rmet @rct
       )
       
       (deflayer qwerty
         esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
-        @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+        @grl 1    2    3    4    5    6    7    8    9    0    -    =    caps
         tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-        @cap a    s    d    f    g    h    j    k    l    ;    '    ret
+        @bsp a    s    d    f    g    h    j    k    l    ;    '    ret
         lsft z    x    c    v    b    n    m    ,    .    /    rsft
         lctl lmet lalt           spc            ralt rmet rctl
       )
 
-      ;; Colemak-DH (angle modded)
-      (deflayer colemakdh
-        esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
-        @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-        tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
-        @cap a    r    s    t    g    m    n    e    i    o    '    ret
-        @ftz x    c    d    v    z    k    h    ,    .    /    rsft
-        @lct lmet lalt           spc            ralt rmet @rct
+      (defvar
+        tt 200
+        ht 90
       )
-      
+
       (defalias
-        grl (tap-hold 200 200 grv (layer-toggle layouts))
+        grl (tap-hold $tt $ht grv (layer-toggle layouts))
       
         gal (layer-switch gallium)
         qwr (layer-switch qwerty)
-        cmk (layer-switch colemakdh)
-      
-        cap (tap-hold 200 200 caps (layer-toggle navigation))
 
-        ftx (tap-hold 200 90 x lsft)
-        ftz (tap-hold 200 90 z lsft)
+        bps (on-press-fakekey normal-bspc toggle)
+
+        bsp (tap-hold $tt $ht bspc (layer-toggle navigation))
+        cap (tap-hold $tt $ht caps (layer-toggle navigation))
+
+        ftx (tap-hold $tt $ht x lsft)
 
         lct (multi lctrl (layer-while-held qwerty))
         rct (multi rctrl (layer-while-held qwerty))
       )
-      
+
+      (deffakekeys
+        normal-bspc (layer-while-held normal-bspc)
+      )
+
       (deflayer layouts
-        _    @gal @qwr @cmk _    _    _    _    _    _    _    lrld _
-        _    @gal @qwr @cmk _    _    _    _    _    _    _    lrld _    _
+        _    @gal @qwr _    _    _    _    _    _    _    _    lrld _
+        _    @gal @qwr _    _    _    _    _    _    _    _    lrld _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _    _    _    _    _    _    _    _
+        @bps _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _
       )
@@ -74,6 +73,15 @@
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _   C-lft S-] S-[ C-rght _    esc  _    _
         _    _    _    _    _    _    lft  down up   rght S-;  _    _
+        _    _    _    _    _    _    _    _    _    _    _    _
+        _    _    _              _              _    _    _
+      )
+
+      (deflayer normal-bspc
+        _    _    _    _    _    _    _    _    _    _    _    _    _
+        _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
+        _    _    _    _    _    _    _    _    _    _    _    _    _    _
+        @cap _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _
       )
