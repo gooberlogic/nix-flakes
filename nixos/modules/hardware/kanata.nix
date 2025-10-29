@@ -35,7 +35,7 @@
 
       (defvar
         tt 200
-        ht 90
+        ht 100
       )
 
       (defalias
@@ -49,7 +49,7 @@
         bsp (tap-hold $tt $ht bspc (layer-toggle navigation))
         cap (tap-hold $tt $ht caps (layer-toggle navigation))
 
-        ftx (tap-hold $tt $ht x lsft)
+        ftx (tap-hold $tt 90 x lsft)
 
         lct (multi lctrl (layer-while-held shortcuts))
         rct (multi rctrl (layer-while-held shortcuts))
@@ -92,6 +92,9 @@
         o o ;; options
         d d ;; exit
         l l ;; clear
+        a a ;; all
+        f f ;; find
+        n n ;; next
       )
 
       (deflayermap normal-bspc
