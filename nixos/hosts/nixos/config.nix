@@ -26,6 +26,7 @@ let
     "misc/brave-debloat"
 
     "networking/network"
+    "networking/nm-extra"
     "networking/samba.secret"
     #"networking/shadowsocks"
 

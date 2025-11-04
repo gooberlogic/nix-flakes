@@ -4,6 +4,7 @@
 
   services.kanata = {
     enable = true;
+    keyboards.default.extraDefCfg = "delegate-to-first-layer yes";
     keyboards.default.config = ''
       (defsrc
         esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
@@ -26,9 +27,9 @@
       
       (deflayer qwerty
         esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
-        @grl 1    2    3    4    5    6    7    8    9    0    -    =    caps
+        @grl 1    2    3    4    5    6    7    8    9    0    -    =    _
         tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-        @bsp a    s    d    f    g    h    j    k    l    ;    '    ret
+        _    a    s    d    f    g    h    j    k    l    ;    '    ret
         lsft z    x    c    v    b    n    m    ,    .    /    rsft
         lctl lmet lalt           spc            ralt rmet rctl
       )
@@ -51,8 +52,8 @@
 
         ftx (tap-hold $tt 90 x lsft)
 
-        lct (multi lctrl (layer-while-held shortcuts))
-        rct (multi rctrl (layer-while-held shortcuts))
+        lct (multi lctrl (layer-while-held qwerty))
+        rct (multi rctrl (layer-while-held qwerty))
       )
 
       (deffakekeys
@@ -75,26 +76,6 @@
         _    _    _    _    _    _    lft  down up   rght S-;  _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _
-      )
-
-      ;; map these to qwerty when holding ctrl
-      (deflayermap shortcuts
-        c c ;; copy
-        v v ;; paste
-        x x ;; cut
-        t t ;; tabs
-        w w ;; close tabs
-        q q ;; quit
-        z z ;; undo
-        r r ;; redo
-        y y ;; redo
-        s s ;; save
-        o o ;; options
-        d d ;; exit
-        l l ;; clear
-        a a ;; all
-        f f ;; find
-        n n ;; next
       )
 
       (deflayermap normal-bspc
