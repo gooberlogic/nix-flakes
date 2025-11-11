@@ -2,8 +2,11 @@
 
 {
 
+  # Use nm-applet in case your DE's VPN connection fails with 
+  # something like "could not find source connection"
+
   environment.systemPackages = with pkgs; [
-    strongswan
+    networkmanagerapplet
   ];
 
   networking.networkmanager = {
@@ -14,7 +17,7 @@
       networkmanager-openconnect
       networkmanager-openvpn
       networkmanager-sstp
-      networkmanager_strongswan
+      networkmanager-strongswan
       networkmanager-vpnc
     ];
   };
@@ -25,6 +28,8 @@
       "ipsec.d/ipsec.nm-l2tp.secrets"
     ];
   };
+
+  # services.xl2tpd.enable = true;
 
   environment.etc = {
     "strongswan.conf".text = '''';
