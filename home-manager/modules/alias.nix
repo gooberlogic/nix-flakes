@@ -49,7 +49,8 @@ in
     density = "find -type f -exec dirname {} \\; | sort | uniq -c | sort -n";
     venv = "source ./.venv/bin/activate";
     pass-here = "export PASSWORD_STORE_DIR=$PWD";
-    yt-dlp-archive = "yt-dlp -f 'bestvideo[height<=720][fps<=30][ext=mp4]+bestaudio[ext=m4a]' -o '%(upload_date)s - %(title)s%(ext)s' --download-archive ./archive.txt --write-description --write-info-json --write-sub --write-auto-sub --write-thumbnail --write-annotations";
+    yt-dlp = "yt-dlp -S 'vcodec:avc,res,acodec:aac'";
+    yt-dlp-archive = "yt-dlp -f '[height<=1080][fps<=30]' -S 'vcodec:avc,res,acodec:acc' -o '%(upload_date)s - %(title)s.%(ext)s' --download-archive ./archive.txt --write-description --write-info-json --write-sub --write-auto-sub --write-thumbnail";
     sensors-watch = "bash -c 'while true; do clear; sensors; sleep \$0; done'";
   };
 

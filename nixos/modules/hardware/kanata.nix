@@ -3,6 +3,7 @@
 {
 
   services.kanata = {
+    package = pkgs.kanata; #(pkgs.callPackage ./kanata/package.nix {});
     enable = true;
     keyboards.default.extraDefCfg = "delegate-to-first-layer yes";
     keyboards.default.config = ''
@@ -22,7 +23,7 @@
         tab  b    l    d    c    v    j    f    o    u    ,    [    ]    \
         @bsp n    r    t    s    g    y    h    a    e    i    /    ret
         @ftx q    m    w    z    x    k    p    '    ;    .    rsft
-        @lct lmet lalt           spc            ralt rmet @rct
+        @lct @met lalt           spc            ralt @met @rct
       )
       
       (deflayer qwerty
@@ -34,26 +35,47 @@
         lctl lmet lalt           spc            ralt rmet rctl
       )
 
+      ;; https://github.com/Apsu/Canary
+      (deflayer canary
+        esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
+        @grl 1    2    3    4    5    6    7    8    9    0    -    =    caps
+        tab  w    l    y    p    k    z    x    o    u    ;    [    ]    \
+        @bsp c    r    s    t    b    f    n    e    i    a    '    ret
+        @ftq j    v    d    g    q    m    h    /    ,    .    rsft
+        @lct @met lalt           spc            ralt @met @rct
+      )
+
       (defvar
         tt 200
         ht 100
+
+        chord-timeout 100
+        chord-release-behaviour all-released
+        chord-excluded-layers (qwerty)
       )
+
+      ;;(defchordsv2
+      ;; (include chords.tsv) _ $chord-timeout $chord-release-behaviour $chord-excluded-layers
+      ;;)
 
       (defalias
         grl (tap-hold $tt $ht grv (layer-toggle layouts))
       
         gal (layer-switch gallium)
         qwr (layer-switch qwerty)
+        cry (layer-switch canary)
 
         bps (on-press-fakekey normal-bspc toggle)
 
         bsp (tap-hold $tt $ht bspc (layer-toggle navigation))
         cap (tap-hold $tt $ht caps (layer-toggle navigation))
 
-        ftx (tap-hold $tt 90 x lsft)
+        ftx (tap-hold $tt $ht x lsft)
+        ftq (tap-hold $tt $ht q lsft)
 
         lct (multi lctrl (layer-while-held qwerty))
         rct (multi rctrl (layer-while-held qwerty))
+        met (multi lmet  (layer-while-held qwerty))
       )
 
       (deffakekeys
@@ -61,8 +83,8 @@
       )
 
       (deflayer layouts
-        _    @gal @qwr _    _    _    _    _    _    _    _    _    _
-        _    @gal @qwr _    _    _    _    _    _    _    _    _    _    lrld
+        _    @gal @qwr @cry _    _    _    _    _    _    _    _    _
+        _    @gal @qwr @cry _    _    _    _    _    _    _    _    _    lrld
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         @bps _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _
@@ -73,7 +95,7 @@
         _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _   C-lft S-] S-[ C-rght _    esc  _    _
-        _    _    _    _    _    _    lft  down up   rght S-;  _    _
+        _    _    _    _    _    _    lft  down up   rght _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _
       )
@@ -93,6 +115,7 @@
 
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+    SUBSYSTEM=="input", ATTRS{name}=="kanata", SYMLINK+="input/kanata"
   '';
 
   users.groups.uinput = {};

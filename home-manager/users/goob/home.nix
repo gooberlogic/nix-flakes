@@ -15,8 +15,8 @@ let
     heroic eduke32
 
     # GUI
-    gimp freerdp3.out feishin joplin-desktop
-    libreoffice-fresh solfege
+    gimp freerdp feishin joplin-desktop
+    libreoffice-fresh solfege lingot
   ];
 
   moduleImports = [

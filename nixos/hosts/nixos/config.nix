@@ -1,11 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kbLayout kbVariant kbOptions autoOptimize textEditor; 
+  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kbLayout kbVariant kbOptions autoOptimize textEditor secret_groups; 
 
   moduleImports = [
 
-    "user"
     "alias"
     "environment"
 
@@ -43,6 +42,31 @@ in
 {
 
   imports = [ ./hardware.secret.nix ] ++ moduleImportsMap;
+  
+  # Users and User Groups
+  users.groups = {
+    goob.gid = 4000;
+    # dummy.gid = 4001;
+  };
+
+  users.users = {
+    goob = {
+      home = "/home/goob";
+      uid = 4000;
+      group = "goob";
+      isNormalUser = true;
+      shell = pkgs.bash;
+      extraGroups = [ "users" "wheel" "libvirtd" "docker" "openrazer" ] ++ secret_groups;
+    };
+    #dummy = {
+    #  home = "/home/dummy";
+    #  uid = 4001;
+    #  group = dummy;
+    #  isNormalUser = true;
+    #  shell = pkgs.zsh;
+    #  extraGroups = [ "users" "wheel" ];
+    #};
+  };
 
   # GRUB Bootloader
   boot.loader.grub.enable = true;
