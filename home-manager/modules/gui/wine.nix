@@ -8,6 +8,7 @@
     wineWowPackages.waylandFull
     protontricks
     winetricks
+    #wineasio
   ];
 
 }

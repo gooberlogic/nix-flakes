@@ -40,6 +40,8 @@
     evince
     decibels
     geary
+    showtime
+    papers
 
     # file-roller
     # seahorse

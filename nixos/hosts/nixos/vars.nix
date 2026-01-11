@@ -22,9 +22,10 @@ in
 
 
   # user 
-  mod_user_name = "goob";
-  mod_user_id = 4000;
-  mod_user_groups = [ "libvirtd" "docker" "openrazer" ] ++ secret_groups;
+  #mod_user_name = "goob";
+  #mod_user_id = 4000;
+  #mod_user_groups = [ "libvirtd" "docker" "openrazer" ] ++ secret_groups;
+  secret_groups = secret_groups;
   
   # desktop/essentials 
   mod_essentials_printing = true;
