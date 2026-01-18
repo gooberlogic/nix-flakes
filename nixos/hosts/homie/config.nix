@@ -46,7 +46,7 @@ in
       group = "goob";
       isNormalUser = true;
       shell = pkgs.bash;
-      extraGroups = [ "docker" ] ++ secret_groups;
+      extraGroups = [ "docker" "wheel" ] ++ secret_groups;
     };
     #dummy = {
     #  home = "/home/dummy";
