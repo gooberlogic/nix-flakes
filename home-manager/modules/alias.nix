@@ -9,6 +9,8 @@ in
   imports = [
     ./functions/mount-cifs.nix
     ./functions/mount-game.nix
+    ./scripts/bottles-move.nix
+    ./scripts/bottles-setup.nix
   ];
 
   home.shellAliases = {

@@ -5,18 +5,18 @@ let
 
   extraPkgs = with pkgs; [
     # CLI
-    ffmpeg pulsemixer yt-dlp
+    ffmpeg pulsemixer yt-dlp rusty-psn
+    yq
 
     # DEV
-    godot_4 nodejs_24 insomnia typst
+    godot_4 nodejs_24 insomnia
 
     # GAMES
-    gzdoom quake3e qjoypad retroarch-full
-    heroic eduke32
+    gzdoom quake3e qjoypad eduke32
+    rpcs3 dolphin-emu
 
     # GUI
-    gimp freerdp feishin joplin-desktop
-    libreoffice-fresh solfege lingot
+    gimp feishin joplin-desktop
   ];
 
   moduleImports = [
@@ -28,15 +28,18 @@ let
 
     "dev/nvchad"
     "dev/rust"
-    "dev/tmux"
+    #"dev/tmux"
 
-    "gui/brave"
+    "games/heroic"
+    "games/retroarch"
+
     "gui/jellyfin"
     "gui/kdenlive"
     "gui/looking-glass"
     "gui/mpv"
     "gui/obs"
     "gui/syncthing"
+    "gui/ungoogled-chromium"
     "gui/wine"
 
     "settings/disable-recent"

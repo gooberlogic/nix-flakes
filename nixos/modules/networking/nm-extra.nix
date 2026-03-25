@@ -22,18 +22,18 @@
     ];
   };
 
-  services.strongswan = {
+  services.libreswan = {
     enable = true;
-    secrets = [
-      "ipsec.d/ipsec.nm-l2tp.secrets"
-    ];
+  #  secrets = [
+  #    "ipsec.d/ipsec.nm-l2tp.secrets"
+  #  ];
   };
 
   # services.xl2tpd.enable = true;
 
   environment.etc = {
-    "strongswan.conf".text = '''';
-    "ipsec.secrets".text = ''include /etc/ipsec.d/*.secrets'';
+    #"strongswan.conf".text = '''';
+    "ipsec.secrets".text = ''include ${pkgs.libreswan}/etc/ipsec.secrets'';
   };
 
 }

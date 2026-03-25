@@ -13,26 +13,23 @@ let
 
     "dispman/gdm"
 
-    "gaming/kvm-gpu"
+    #"gaming/kvm-gpu"
     "gaming/steam"
 
     "hardware/kanata"
     "hardware/openrazer"
-    "hardware/amd-amdgpu"
-    "hardware/smartmontools"
-    "hardware/droidcam"
-
-    "misc/brave-debloat"
+    #"hardware/amd-amdgpu"
+    "hardware/nvidia"
+    "hardware/opentablet"
 
     "networking/network"
     "networking/nm-extra"
     "networking/samba.secret"
-    #"networking/shadowsocks"
 
     "system/docker"
-    "system/waydroid"
     "system/kvm"
     "system/flatpak"
+    "system/ntsync"
 
   ];
 
@@ -56,7 +53,7 @@ in
       group = "goob";
       isNormalUser = true;
       shell = pkgs.bash;
-      extraGroups = [ "users" "wheel" "libvirtd" "docker" "openrazer" ] ++ secret_groups;
+      extraGroups = [ "users" "wheel" "libvirtd" "docker" "openrazer" "audio" ] ++ secret_groups;
     };
     #dummy = {
     #  home = "/home/dummy";

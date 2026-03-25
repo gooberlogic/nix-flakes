@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# AI slop script to automatically download Chrome extension .crx files from brave.nix
+# AI slop script to automatically download Chrome extension .crx files from ungoogled-chromium.nix
 
 set -euo pipefail
 
-NIX_FILE="../brave.nix"
+NIX_FILE="../ungoogled-chromium.nix"
 OUT_DIR="./crx"
 rm -rf "$OUT_DIR" # DANGER!
 mkdir -p "$OUT_DIR"
