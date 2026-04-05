@@ -30,6 +30,9 @@ let
     "system/kvm"
     "system/flatpak"
     "system/ntsync"
+    "system/bubblewrap"
+
+    "misc/gstreamer"
 
   ];
 
@@ -97,6 +100,7 @@ in
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = autoOptimize;
+  nix.settings.use-xdg-base-directories = true;
 
   # Hardware
   hardware.enableAllFirmware  = true;

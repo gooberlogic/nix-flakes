@@ -16,15 +16,21 @@
       
       if ! command -v yq &> /dev/null; then echo "yq is not installed, please install it."; exit 1; fi
       
-      echo "copying libvdk dll's from steam..."
-      cp -v $STEAM_PREFIX_PATH/system32/libvkd3d* ./windows/system32/
-      cp -v $STEAM_PREFIX_PATH/syswow64/libvkd3d* ./windows/syswow64/
-      
-      # uncomment if 32 bit prefix
-      #cp -v $STEAM_PREFIX_PATH/syswow64/libvkd3d* ./windows/system32/
+      if [[ "$1" != "nodll" ]]; then
+        echo "copying libvdk dll's from steam..."
+        if [[ "$1" != 32 ]]; then
+          cp -v $STEAM_PREFIX_PATH/system32/libvkd3d* ./windows/system32/
+          cp -v $STEAM_PREFIX_PATH/syswow64/libvkd3d* ./windows/syswow64/
+        else
+          echo "32 bit specified"
+          cp -v $STEAM_PREFIX_PATH/syswow64/libvkd3d* ./windows/system32/
+        fi
+      fi
       
       echo "setting yaml..."
       
+      # .Environment_Variables.BOTTLES_USE_SYSTEM_GSTREAMER = "1" |
+
       yq -y -i '
       .Parameters.sync = "fsync" |
       .Parameters.wayland = true |

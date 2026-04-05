@@ -13,21 +13,17 @@
       #!/usr/bin/env bash
       
       if ! command -v yq &> /dev/null; then echo "yq is not installed, please install it."; exit 1; fi
-      
-      echo "NOTICE: please close bottles application before continuing!"
+
+      if ! [[ -f ./bottle.yml ]]; then echo "bottle.yml not found, please run this script in a bottle."; exit 1; fi
       
       prompt() {
         read -rp "All files in this bottle will be moved to the above directory, continue? (y/N): " answer && [[ "$answer" == [yY] ]] || exit 1
       }
-      
-      if ! [[ -f ./bottle.yml ]]; then
-        echo "bottle.yml not found, please run this script in a bottle."
-        exit 1
-      fi
-      
+
+      bottles_dir="$HOME/.var/app/com.usebottles.bottles/data/bottles/bottles"
       bottle="$(basename "$PWD")"
       
-      bottles_dir="$HOME/.var/app/com.usebottles.bottles/data/bottles/bottles"
+      echo "NOTICE: please close bottles application before continuing!"
       
       echo "Specify directory to move bottle to (example: /mnt/hdd/bottles)"
       read -p ":" dir
@@ -46,7 +42,8 @@
           shopt -s dotglob && \
           mv -v * $dir && \
           shopt -u dotglob && \
-          echo "Path: $dir" > "$bottles_dir/$bottle/placeholder.yml"
+          echo "Path: $dir" > "$bottles_dir/$bottle/placeholder.yml" && \
+          echo "Created $bottles_dir/$bottle/placeholder.yml"
       
         echo -e "\nDone, make sure bottles can access the directory you moved it to!"
       

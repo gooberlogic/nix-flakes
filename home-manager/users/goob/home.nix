@@ -24,13 +24,11 @@ let
     "alias"
     "environment"
 
-    "cli/vpn-scripts.secret"
-
     "dev/nvchad"
     "dev/rust"
     #"dev/tmux"
 
-    "games/heroic"
+    #"games/heroic"
     "games/retroarch"
 
     "gui/jellyfin"
@@ -71,6 +69,7 @@ in
 
   # Nix Configuration
   nixpkgs.config.allowUnfree = true;
+  nix.assumeXdg = true;
 
   # Packages
   home.packages = with pkgs; [

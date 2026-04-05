@@ -10,23 +10,25 @@ in
     enable = true;
     bashrcExtra = ''
       PS1='${shellPs}'
-      HISTFILESIZE=25
     '';
+    historyFile = "${home}/.local/share/bash_history";
+    historyFileSize = 25;
   };
 
   home.sessionVariables = rec {
 
     EDITOR = "${mod_environment_textEditor}";
-    PATH = "${home}/.local/share/cargo/bin:${home}/.local/bin:${home}/.nix-profile/bin:$PATH";
+    PATH = "${home}/.local/share/cargo/bin:${home}/.local/bin:${home}/.nix-profile/bin:${home}/.local/state/nix/profile/bin:$PATH";
     HM = "${home}/nix-flakes/home-manager/users/${user}";
     HMM = "${home}/nix-flakes/home-manager/modules";
     OPENWEBUI_API_KEY = "${mod_environment_openWebUiKey}";
 
-    # Cleanups
+    # Cleanups https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
     XDG_CONFIG_HOME = "${home}/.config";
     GTK2_RC_FILES = "${XDG_CONFIG_HOME}/gtk-2.0/gtkrc";
     XMONAD_CONFIG_DIR = "${XDG_CONFIG_HOME}/xmonad";
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";
+    WGETRC = "${XDG_CONFIG_HOME}/wgetrc";
 
     XDG_DATA_HOME = "${home}/.local/share";
     GNUPGHOME = "${XDG_DATA_HOME}/gnupg";
@@ -34,6 +36,12 @@ in
     WINEPREFIX = "${XDG_DATA_HOME}/wineprefixes/default";
     CARGO_HOME = "${XDG_DATA_HOME}/cargo";
     RUSTUP_HOME = "${XDG_DATA_HOME}/rustup";
+    MINETEST_USER_PATH = "${XDG_DATA_HOME}/luanti";
+
+    XDG_STATE_HOME = "${home}/.local/state";
+
+    XDG_CACHE_HOME = "${home}/.cache";
+    CUDA_CACHE_PATH = "${XDG_CACHE_HOME}/nv";
 
   };
 
