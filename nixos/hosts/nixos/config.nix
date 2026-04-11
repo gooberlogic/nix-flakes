@@ -21,6 +21,7 @@ let
     #"hardware/amd-amdgpu"
     "hardware/nvidia"
     "hardware/opentablet"
+    "hardware/ds4drv"
 
     "networking/network"
     "networking/nm-extra"

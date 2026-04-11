@@ -21,6 +21,8 @@ in
 
     settings."org/gnome/desktop/search-providers".disabled = [ "org.gnome.Nautilus.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.clocks.desktop" ];
 
+    settings."org/gnome/desktop/privacy".remember-recent-files = false;
+
     settings."org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
       natural-scroll = false;
