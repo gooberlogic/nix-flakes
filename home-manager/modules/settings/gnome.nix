@@ -13,9 +13,15 @@ in
 
     # to help find dconf values, use: dconf watch /
 
+    settings."org/gtk/gtk4/settings/file-chooser".sort-directories-first = true;
+
     settings."org/gnome/desktop/peripherals/touchpad".natural-scroll = false;
 
     settings."org/gnome/desktop/wm/preferences".num-workspaces = 4;
+
+    settings."org/gnome/desktop/search-providers".disabled = [ "org.gnome.Nautilus.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.clocks.desktop" ];
+
+    settings."org/gnome/desktop/privacy".remember-recent-files = false;
 
     settings."org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
@@ -23,7 +29,7 @@ in
     };
 
     settings."org/gnome/mutter" = {
-      dynamic-workspaces = false;
+      dynamic-workspaces = true;
       edge-tiling = true;
       workspaces-only-on-primary = false;
     };
@@ -73,7 +79,21 @@ in
       icons-limit = 16;
     };
 
+    settings."org/gnome/shell/extensions/alphabetical-app-grid".folder-order-position = "start";
+
     settings."org/gnome/shell/extensions/show-desktop-button".indicator-position = "LEFT";
+
+    settings."com/github/Ory0n/Resource_Monitor" = {
+      refreshtime = 4;
+      diskspacestatus = false;
+      diskstatsstatus = false;
+      netethstatus = false;
+      netwlanstatus = false;
+      thermalcputemperaturestatus = true;
+      extensionposition = "left";
+      thermalcputemperaturedeviceslist = ["k10temp: Tctl-true-/sys/class/hwmon/hwmon1/temp1_input"];
+      iconsposition = "left";
+    };
 
     settings."org/gnome/shell" = {
       disable-user-extensions = false;
@@ -82,6 +102,8 @@ in
         gsconnect.extensionUuid
         appindicator.extensionUuid
         show-desktop-button.extensionUuid
+        alphabetical-app-grid.extensionUuid
+        user-themes.extensionUuid
       ];
     };
   };
@@ -91,6 +113,8 @@ in
     gsconnect
     appindicator
     show-desktop-button
+    alphabetical-app-grid
+    user-themes
   ];
 
   xdg.mimeApps.defaultApplications."image/*" = ["org.gnome.Loupe.desktop"];

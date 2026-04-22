@@ -23,7 +23,13 @@ o.hlsearch = false
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
+o.cursorlineopt = "number"
+
 a.nvim_create_user_command('T', function()
   vim.cmd('tabnew')
+  vim.cmd('terminal')
+end, {})
+
+a.nvim_create_user_command('Th', function()
   vim.cmd('terminal')
 end, {})

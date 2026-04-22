@@ -1,11 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kbLayout kbVariant kbOptions autoOptimize textEditor; 
+  inherit (import ./vars.nix) grubDevice grubEfi timezone hostname lang kbLayout kbVariant kbOptions autoOptimize textEditor secret_groups; 
 
   moduleImports = [
 
-    "user"
     "alias"
     "environment"
 
@@ -14,25 +13,27 @@ let
 
     "dispman/gdm"
 
-    "gaming/kvm-gpu"
+    #"gaming/kvm-gpu"
     "gaming/steam"
 
     "hardware/kanata"
     "hardware/openrazer"
-    "hardware/amd-amdgpu"
-    "hardware/smartmontools"
-    "hardware/droidcam"
-
-    "misc/brave-debloat"
+    #"hardware/amd-amdgpu"
+    "hardware/nvidia"
+    "hardware/opentablet"
+    "hardware/ds4drv"
 
     "networking/network"
+    "networking/nm-extra"
     "networking/samba.secret"
-    "networking/shadowsocks"
 
     "system/docker"
-    "system/waydroid"
     "system/kvm"
     "system/flatpak"
+    "system/ntsync"
+    "system/bubblewrap"
+
+    "misc/gstreamer"
 
   ];
 
@@ -42,6 +43,31 @@ in
 {
 
   imports = [ ./hardware.secret.nix ] ++ moduleImportsMap;
+  
+  # Users and User Groups
+  users.groups = {
+    goob.gid = 4000;
+    # dummy.gid = 4001;
+  };
+
+  users.users = {
+    goob = {
+      home = "/home/goob";
+      uid = 4000;
+      group = "goob";
+      isNormalUser = true;
+      shell = pkgs.bash;
+      extraGroups = [ "users" "wheel" "libvirtd" "docker" "openrazer" "audio" ] ++ secret_groups;
+    };
+    #dummy = {
+    #  home = "/home/dummy";
+    #  uid = 4001;
+    #  group = dummy;
+    #  isNormalUser = true;
+    #  shell = pkgs.zsh;
+    #  extraGroups = [ "users" "wheel" ];
+    #};
+  };
 
   # GRUB Bootloader
   boot.loader.grub.enable = true;
@@ -75,6 +101,7 @@ in
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = autoOptimize;
+  nix.settings.use-xdg-base-directories = true;
 
   # Hardware
   hardware.enableAllFirmware  = true;

@@ -8,7 +8,7 @@ in
   users.users = builtins.listToAttrs (map (user: lib.nameValuePair user {
     isSystemUser = true;
     uid = (mod_userGen_startId + (lib.lists.findFirstIndex (x: x == user) null mod_userGen_users));
-    shell = pkgs.bash;
+    shell = null;
     group = user;
     extraGroups = [];
   }) mod_userGen_users);

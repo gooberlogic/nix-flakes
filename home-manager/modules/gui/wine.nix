@@ -3,11 +3,10 @@
 {
 
   home.packages = with pkgs; [
-    #wineWowPackages.stable
-    #(wine.override { wineBuild = "wine64"; })
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     protontricks
     winetricks
+    wineasio
   ];
 
 }

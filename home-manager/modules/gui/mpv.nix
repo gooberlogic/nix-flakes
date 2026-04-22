@@ -17,7 +17,7 @@
 
   home.file."${home}/.config/mpv/scripts/autoload.lua".text = builtins.readFile(builtins.fetchurl {
     url = "https://raw.githubusercontent.com/mpv-player/mpv/refs/heads/master/TOOLS/lua/autoload.lua";
-    sha256 = "0m441dvhkqw18jh1q71ygmh09a3h7jcp33m4nbxfp26cmkr286dv";
+    sha256 = "0i471m1ghi99ckd7rvdikhrxfs29201s852c8v9s1xi8r715mvy0";
   });
 
   xdg.mimeApps.defaultApplications = {

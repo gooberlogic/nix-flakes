@@ -10,10 +10,13 @@
     [spice]
     enable=yes
     audio=yes
-    input=no
+    input=yes
     clipboard=no
     scaleCursor=no
     showCursorDot=no
+
+    [input]
+    escapeKey=88
 
     [audio]
     syncVolume=no

@@ -11,6 +11,7 @@ in
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   # Load nvidia driver for Xorg and Wayland

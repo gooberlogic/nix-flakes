@@ -3,20 +3,17 @@
 {
 
   xdg.mimeApps.defaultApplications = {
-    "text/html" = ["brave-browser.desktop"];
-    "x-scheme-handler/http" = ["brave-browser.desktop"];
-    "x-scheme-handler/https" = ["brave-browser.desktop"];
+    "text/html" = ["chromium.desktop"];
+    "x-scheme-handler/http" = ["chromium.desktop"];
+    "x-scheme-handler/https" = ["chromium.desktop"];
   };
-
-  home.packages = with pkgs; [
-    comic-mono
-  ];
 
   programs.chromium = {
     enable = true;
-    package = pkgs.brave;
+    package = pkgs.ungoogled-chromium;
     extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock
+      "ddkjiahejlhfcafbddmgiahcphecmpfh" # ublock lite
+      "hnijmpliikobphakkmejgdoffgicmcbc" # auto history wipe
       "gebbhagfogifgggkldgodflihgfeippi" # return youtube dislike
       "enamippconapkdmgfgjchkhakpfinmaj" # dearrow
       "mnjggcdmjocbbbhaepdhchncahnbgone" # sponserblock
@@ -24,16 +21,14 @@
       "hlkenndednhfkekhgcdicdfddnkalmdm" # cookie-editor
       "jinjaccalgkegednnccohejagnlnfdag" # violentmonkey
       "clngdbkpkpeebahjckkjfobafhncgmne" # stylus
-      "hdhinadidafjejdhmfkjgnolgimiaplp" # read aloud
       "mpiodijhokgodhhofbcjdecpffjipkle" # singlefile
-      "clngdbkpkpeebahjckkjfobafhncgmne" # stylus
       "hjdoplcnndgiblooccencgcggcoihigg" # tosdr
       "jghecgabfgfdldnmbfkhmffcabddioke" # volume-master
       "mghenlmbmjcpehccoangkdpagbcbkdpc" # session-manager
     ];
-    commandLineArgs = [
-      "--disable-features=WebRtcAllowInputVolumeAdjustment --enable-gpu-rasterization --ignore-gpu-blacklist --disable-gpu-driver-workarounds --enable-features=AcceleratedVideoDecodeLinuxGL --ozone-platform=x11" 
-    ];
+    #commandLineArgs = [
+    #  "--disable-features=WebRtcAllowInputVolumeAdjustment --enable-gpu-rasterization --ignore-gpu-blacklist --disable-gpu-driver-workarounds --enable-features=AcceleratedVideoDecodeLinuxGL --ozone-platform=x11" 
+    #];
   };
   
 }

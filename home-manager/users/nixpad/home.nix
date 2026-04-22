@@ -5,17 +5,15 @@ let
 
   extraPkgs = with pkgs; [
     # CLI
-    ffmpeg pulsemixer
+    ffmpeg pulsemixer yt-dlp
 
     # DEV
     nodejs_24
 
     # GAMES
-    heroic
 
     # GUI
     feishin joplin-desktop
-    libreoffice-fresh
   ];
 
   moduleImports = [
@@ -24,11 +22,10 @@ let
     "environment"
 
     "dev/nvchad"
-    "dev/tmux"
 
-    "gui/brave"
     "gui/jellyfin"
     "gui/mpv"
+    "gui/ungoogled-chromium"
     "gui/wine"
 
     "settings/disable-recent"
@@ -48,9 +45,9 @@ in
   programs.home-manager.enable = true;
 
   # WARNING!
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
+  #nixpkgs.config.permittedInsecurePackages = [
+  #  "qtwebengine-5.15.19"
+  #];
 
   # Variables
   home.username = realUser;
@@ -58,6 +55,7 @@ in
 
   # Nix Configuration
   nixpkgs.config.allowUnfree = true;
+  nix.assumeXdg = true;
 
   # Packages
   home.packages = with pkgs; [

@@ -40,6 +40,8 @@
     evince
     decibels
     geary
+    showtime
+    papers
 
     # file-roller
     # seahorse
@@ -68,5 +70,7 @@
   services.desktopManager = {
     gnome.enable = true;
   };
+
+  services.gnome.games.enable = false;
 
 }

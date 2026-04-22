@@ -18,9 +18,11 @@
       echo "Unmounting anything at $mount_dir..."
       eval "sudo umount -lf $mount_dir"
 
+      SUDO_USER=$(whoami | awk '{print $1}')
+
       echo "Mounting game share $full_share_url..."
-      mount_command="sudo mount -t cifs -o username=root,file_mode=0777,dir_mode=0777 '$full_share_url' '$mount_dir'"
-      echo $mount_command
+      mount_command="sudo mount -t cifs -o username=$SUDO_USER,file_mode=0777,dir_mode=0777 '$full_share_url' '$mount_dir'"
+      echo -e "\n$mount_command\n"
       eval $mount_command
     }
   '';
