@@ -29,3 +29,7 @@ a.nvim_create_user_command('T', function()
   vim.cmd('tabnew')
   vim.cmd('terminal')
 end, {})
+
+a.nvim_create_user_command('Th', function()
+  vim.cmd('terminal')
+end, {})

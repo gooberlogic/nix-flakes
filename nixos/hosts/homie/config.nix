@@ -8,11 +8,9 @@ let
     "alias"
     "environment"
 
-    "hardware/smartmontools"
-
-    "misc/brave-debloat"
-
     "networking/network"
+
+    "system/docker"
 
     "server/cloudflared"
     "server/cron"
@@ -21,8 +19,6 @@ let
     "server/sysusergen"
     "server/usergen"
     "server/zfs"
-
-    "system/docker"
 
   ];
 
@@ -90,6 +86,7 @@ in
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = autoOptimize;
+  nix.settings.use-xdg-base-directories = true;
 
   # Hardware
   hardware.enableAllFirmware  = true;

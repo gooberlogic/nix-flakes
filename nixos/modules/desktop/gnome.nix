@@ -71,4 +71,6 @@
     gnome.enable = true;
   };
 
+  services.gnome.games.enable = false;
+
 }

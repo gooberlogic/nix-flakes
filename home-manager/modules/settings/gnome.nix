@@ -21,6 +21,8 @@ in
 
     settings."org/gnome/desktop/search-providers".disabled = [ "org.gnome.Nautilus.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.clocks.desktop" ];
 
+    settings."org/gnome/desktop/privacy".remember-recent-files = false;
+
     settings."org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
       natural-scroll = false;
@@ -101,6 +103,7 @@ in
         appindicator.extensionUuid
         show-desktop-button.extensionUuid
         alphabetical-app-grid.extensionUuid
+        user-themes.extensionUuid
       ];
     };
   };
@@ -111,6 +114,7 @@ in
     appindicator
     show-desktop-button
     alphabetical-app-grid
+    user-themes
   ];
 
   xdg.mimeApps.defaultApplications."image/*" = ["org.gnome.Loupe.desktop"];

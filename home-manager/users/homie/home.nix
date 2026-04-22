@@ -19,7 +19,6 @@ let
     "environment"
 
     "dev/nvchad"
-    "dev/tmux"
     
   ];
 
@@ -35,9 +34,9 @@ in
   programs.home-manager.enable = true;
 
   # WARNING!
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
+  #nixpkgs.config.permittedInsecurePackages = [
+  #  "qtwebengine-5.15.19"
+  #];
 
   # Variables
   home.username = realUser;
@@ -45,6 +44,7 @@ in
 
   # Nix Configuration
   nixpkgs.config.allowUnfree = true;
+  nix.assumeXdg = true;
 
   # Packages
   home.packages = with pkgs; [

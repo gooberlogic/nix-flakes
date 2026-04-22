@@ -5,18 +5,18 @@ let
 
   extraPkgs = with pkgs; [
     # CLI
-    ffmpeg pulsemixer yt-dlp
+    ffmpeg pulsemixer yt-dlp rusty-psn
+    yq
 
     # DEV
-    godot_4 nodejs_24 insomnia typst
+    godot_4 nodejs_24 insomnia
 
     # GAMES
-    gzdoom quake3e qjoypad retroarch-full
-    heroic eduke32
+    gzdoom quake3e qjoypad eduke32
+    rpcs3 dolphin-emu
 
     # GUI
-    gimp freerdp3.out feishin joplin-desktop
-    libreoffice-fresh solfege
+    gimp feishin joplin-desktop
   ];
 
   moduleImports = [
@@ -26,15 +26,19 @@ let
 
     "dev/nvchad"
     "dev/rust"
-    "dev/tmux"
+    "dev/claude"
+    #"dev/tmux"
 
-    "gui/brave"
+    #"games/heroic"
+    "games/retroarch"
+
     "gui/jellyfin"
     "gui/kdenlive"
     "gui/looking-glass"
     "gui/mpv"
     "gui/obs"
     "gui/syncthing"
+    "gui/ungoogled-chromium"
     "gui/wine"
 
     "settings/disable-recent"
@@ -56,9 +60,9 @@ in
   programs.home-manager.enable = true;
 
   # WARNING!
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
+  #nixpkgs.config.permittedInsecurePackages = [
+  #  "qtwebengine-5.15.19"
+  #];
 
   # Variables
   home.username = realUser;
@@ -66,6 +70,7 @@ in
 
   # Nix Configuration
   nixpkgs.config.allowUnfree = true;
+  nix.assumeXdg = true;
 
   # Packages
   home.packages = with pkgs; [

@@ -13,26 +13,27 @@ let
 
     "dispman/gdm"
 
-    "gaming/kvm-gpu"
+    #"gaming/kvm-gpu"
     "gaming/steam"
 
     "hardware/kanata"
     "hardware/openrazer"
-    "hardware/amd-amdgpu"
-    "hardware/smartmontools"
-    "hardware/droidcam"
-
-    "misc/brave-debloat"
+    #"hardware/amd-amdgpu"
+    "hardware/nvidia"
+    "hardware/opentablet"
+    "hardware/ds4drv"
 
     "networking/network"
     "networking/nm-extra"
     "networking/samba.secret"
-    #"networking/shadowsocks"
 
     "system/docker"
-    "system/waydroid"
     "system/kvm"
     "system/flatpak"
+    "system/ntsync"
+    "system/bubblewrap"
+
+    "misc/gstreamer"
 
   ];
 
@@ -56,7 +57,7 @@ in
       group = "goob";
       isNormalUser = true;
       shell = pkgs.bash;
-      extraGroups = [ "users" "wheel" "libvirtd" "docker" "openrazer" ] ++ secret_groups;
+      extraGroups = [ "users" "wheel" "libvirtd" "docker" "openrazer" "audio" ] ++ secret_groups;
     };
     #dummy = {
     #  home = "/home/dummy";
@@ -100,6 +101,7 @@ in
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = autoOptimize;
+  nix.settings.use-xdg-base-directories = true;
 
   # Hardware
   hardware.enableAllFirmware  = true;
