@@ -103,6 +103,7 @@ in
         appindicator.extensionUuid
         show-desktop-button.extensionUuid
         alphabetical-app-grid.extensionUuid
+        user-themes.extensionUuid
       ];
     };
   };
@@ -113,6 +114,7 @@ in
     appindicator
     show-desktop-button
     alphabetical-app-grid
+    user-themes
   ];
 
   xdg.mimeApps.defaultApplications."image/*" = ["org.gnome.Loupe.desktop"];

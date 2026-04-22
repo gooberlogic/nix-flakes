@@ -37,6 +37,7 @@ in
     CARGO_HOME = "${XDG_DATA_HOME}/cargo";
     RUSTUP_HOME = "${XDG_DATA_HOME}/rustup";
     MINETEST_USER_PATH = "${XDG_DATA_HOME}/luanti";
+    NODE_REPL_HISTORY = "${XDG_DATA_HOME}/node_repl_history";
 
     XDG_STATE_HOME = "${home}/.local/state";
 

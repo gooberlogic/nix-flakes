@@ -26,6 +26,7 @@ let
 
     "dev/nvchad"
     "dev/rust"
+    "dev/claude"
     #"dev/tmux"
 
     #"games/heroic"

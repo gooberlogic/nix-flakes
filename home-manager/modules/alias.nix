@@ -7,6 +7,7 @@ in
 {
   
   imports = [
+    ./functions/np.nix
     ./functions/mount-cifs.nix
     ./functions/mount-game.nix
     ./scripts/bottles-move.nix
