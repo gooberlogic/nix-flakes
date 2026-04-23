@@ -6,6 +6,7 @@
     (retroarch.withCores (cores: with cores; [
       dolphin
       pcsx2
+      mupen64plus
     ]))
   ];
 

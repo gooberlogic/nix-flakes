@@ -5,6 +5,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    neovim
     rust-analyzer
     typescript-language-server
     nerd-fonts.victor-mono
@@ -17,7 +18,11 @@
     python313Packages.pip
   ];
 
-  programs.neovim.enable = true;
+  #programs.neovim = {
+  #  enable = true;
+  #  withPython3 = false;
+  #  withRuby = false;
+  #};
 
   home.shellAliases.nvchad-link = "ln -s $HOME/nix-flakes/home-manager/modules/dev/nvchad $HOME/.config/nvim";
 
