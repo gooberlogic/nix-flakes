@@ -26,6 +26,7 @@ let
     "networking/network"
     "networking/nm-extra"
     "networking/samba.secret"
+    #"networking/tor"
 
     "system/docker"
     "system/kvm"
@@ -33,7 +34,7 @@ let
     "system/ntsync"
     "system/bubblewrap"
 
-    "misc/gstreamer"
+    #"misc/gstreamer"
 
   ];
 

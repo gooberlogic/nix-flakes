@@ -34,7 +34,14 @@ in
       workspaces-only-on-primary = false;
     };
 
+    settings."org/gnome/mutter/keybindings" = {
+      rotate-monitor = ["<Super>r" "XF86RotateWindows"];
+    };
+
     settings."org/gnome/desktop/interface" = {
+      font-name = "Liberation Mono 10";
+      document-font-name = "Liberation Mono 11";
+      monospace-font-name = "Liberation Mono 12";
       color-scheme = "prefer-dark";
       accent-color = "${mod_gnome_accentColor}";
       clock-format = "12h";
